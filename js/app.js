@@ -10,7 +10,6 @@ let state = [
     location: 'Taipei',
   },
 ];
-
 let currentPage = 1;
 let from = 1;
 let to = 5;
@@ -55,6 +54,8 @@ const idCounter = () => {
   return countUp;
 };
 
+const numPages = () => Math.ceil(state.length / recordsPerPage);
+
 // Render records list
 
 const render = (template, data) => {
@@ -91,11 +92,32 @@ const renderRecordList = (renderFrom, renderTo) => {
   } else {
     pageControl.style.display = 'flex';
   }
+  if (currentPage === 1) {
+    btnPrev.classList.remove('btn--primary');
+    btnPrev.classList.add('btn--disabled');
+    btnPrev.disabled = true;
+  } else {
+    btnPrev.disabled = false;
+    btnPrev.classList.remove('btn--disabled');
+    btnPrev.classList.add('btn--primary');
+  }
+  if (currentPage === numPages()) {
+    btnNext.classList.remove('btn--primary');
+    btnNext.classList.add('btn--disabled');
+    btnNext.disabled = true;
+  } else {
+    btnNext.disabled = false;
+    btnNext.classList.remove('btn--disabled');
+    btnNext.classList.add('btn--primary');
+  }
+  if (state.length > to) {
+    btnNext.disabled = false;
+    btnNext.classList.remove('btn--disabled');
+    btnNext.classList.add('btn--primary');
+  }
 };
 
 // Pagination
-
-const numPages = () => Math.ceil(state.length / recordsPerPage);
 
 const changePage = (page) => {
   // Validate page
@@ -105,26 +127,6 @@ const changePage = (page) => {
   from = (page - 1) * recordsPerPage + 1;
   to = (page * recordsPerPage);
   renderRecordList(from, to);
-
-  if (page === 1) {
-    btnPrev.classList.remove('btn--primary');
-    btnPrev.classList.add('btn--disabled');
-    btnPrev.disabled = true;
-  } else {
-    btnPrev.disabled = false;
-    btnPrev.classList.remove('btn--disabled');
-    btnPrev.classList.add('btn--primary');
-  }
-
-  if (page === numPages()) {
-    btnNext.classList.remove('btn--primary');
-    btnNext.classList.add('btn--disabled');
-    btnNext.disabled = true;
-  } else {
-    btnNext.disabled = false;
-    btnNext.classList.remove('btn--disabled');
-    btnNext.classList.add('btn--primary');
-  }
 };
 
 const prevPage = () => {
@@ -140,7 +142,6 @@ const nextPage = () => {
     changePage(currentPage);
   }
 };
-
 
 // Event Listener
 
@@ -190,6 +191,9 @@ recordList.addEventListener('click', (e) => {
     const removeId = parseInt(e.target.parentNode.getAttribute('data-id'), 10);
     state = state.filter(item => item.id !== removeId);
     renderRecordList(from, to);
+    if (state.length < from) {
+      prevPage();
+    }
   }
 }, false);
 
