@@ -21,6 +21,7 @@ form {
 
   .form__input {
     flex-basis: calc(100% - 90px);
+    flex-basis: 80% \12;
 
     @media screen and (max-width: $pad-media) {
       flex-basis: 100%;
@@ -30,6 +31,9 @@ form {
     &.form__input--danger {
       box-shadow: $input-danger-box-shadow;
     }
+  }
+  *::-ms-backdrop, .form__input {
+    flex-basis: 80%;
   }
 
   .form__input__warning {

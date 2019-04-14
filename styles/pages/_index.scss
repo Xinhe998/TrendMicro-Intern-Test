@@ -39,7 +39,7 @@
 .record-list-block {
   flex: 1;
   padding: 20px;
-  align-self: self-start;
+  align-self: flex-start;
 
   @media screen and (max-width: $pad-media) {
     flex-basis: 100%;

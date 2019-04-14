@@ -61,6 +61,17 @@ const idCounter = () => {
   return countUp;
 };
 
+const getValueFromRadioButton = (name) => {
+  const buttons = document.getElementsByName(name);
+  for (let i = 0; i < buttons.length; i += 1) {
+    const button = buttons[i];
+    if (button.checked) {
+      return button.value;
+    }
+  }
+  return null;
+};
+
 const numPages = () => Math.ceil(state.length / recordsPerPage);
 
 // Render records list
@@ -76,12 +87,15 @@ const add = (key) => {
   DOMli.classList.add('list-group__item');
   DOMli.setAttribute('data-id', state[key].id);
   DOMli.innerHTML = render(listGroupItem, state[key]);
+  if (!recordList.innerHTML) {
+    recordList.innerHTML = '';
+  }
   recordList.appendChild(DOMli);
   return false;
 };
 
 const renderRecordList = (renderFrom, renderTo) => {
-  recordList.innerHTML = null;
+  recordList.innerHTML = '';
   state.map((item, key) => {
     if (key + 1 >= renderFrom && key < renderTo) {
       add(key);
@@ -180,7 +194,7 @@ addRecordForm.addEventListener('submit', (e) => {
     const record = {
       id: id(),
       name: e.target.name.value,
-      location: e.target.location.value,
+      location: getValueFromRadioButton('location'),
     };
     state.push(record);
 

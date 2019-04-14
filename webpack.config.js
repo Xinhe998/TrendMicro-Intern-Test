@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production';
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: '!!html-webpack-plugin/lib/loader.js!./index.html',
@@ -19,11 +22,15 @@ module.exports = {
     // 將輸出的檔案放到這個資料夾下
     path: path.join(__dirname, 'dist'),
     // 將所有依賴的模組都合併輸出到這個檔案
-    filename: 'bundle.js',
+    filename: '[name].[hash].bundle.js',
   },
   mode: 'development',
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+      },
       {
         test: /\.(js)$/,
         use: ['babel-loader', 'eslint-loader'],
@@ -32,7 +39,11 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         exclude: /node-modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(jpe?g|JPE?G|png|PNG|gif|GIF|svg|SVG|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
@@ -41,10 +52,6 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
-      },
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
       },
     ],
   },
@@ -58,5 +65,23 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(css|scss|sass)$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    HTMLWebpackPluginConfig,
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    }),
+  ],
 };
