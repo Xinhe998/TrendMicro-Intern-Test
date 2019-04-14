@@ -2,7 +2,7 @@
 
 <img src="./screenshot.png" />
 
-- ES6 and Webpack4
+- ES6, Babel and Webpack4
 - BEM naming with SCSS
 - EsLint extends Airbnb style guide
 
