@@ -29,6 +29,13 @@ const englishValidator = /^[A-Za-z]*$/;
 const validateForm = () => {
   if (!nameField.value || !englishValidator.test(nameField.value)) {
     document.getElementsByClassName('form__input__warning')[0].classList.add('form__input__warning--error');
+    document.getElementsByClassName('form__input__warning')[0].innerHTML = 'Please enter english only.';
+    nameField.classList.add('form__input--danger');
+    return false;
+  }
+  if (nameField.value.length <= 2) {
+    document.getElementsByClassName('form__input__warning')[0].classList.add('form__input__warning--error');
+    document.getElementsByClassName('form__input__warning')[0].innerHTML = 'Please enter 3-10 characters.';
     nameField.classList.add('form__input--danger');
     return false;
   }

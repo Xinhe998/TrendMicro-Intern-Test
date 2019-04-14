@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Trend Micro FED Interview Test for Interns",
   "scripts": {
-    "start": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "start": "webpack-dev-server --devtool eval --progress --colors --content-base build",
+    "build": "webpack --mode production"
   },
   "author": "Xinhe Hsu",
   "license": "ISC",
