@@ -196,7 +196,7 @@ addRecordForm.addEventListener('submit', (e) => {
       name: e.target.name.value,
       location: getValueFromRadioButton('location'),
     };
-    state.push(record);
+    state.unshift(record);
 
     from = (currentPage - 1) * recordsPerPage + 1;
     to = (currentPage * recordsPerPage);
