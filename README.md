@@ -27,3 +27,4 @@ The build file will present in the `dist` folder.
 3. Pagination
 4. delete a record
 5. RWD layout
+    <img src="./screenshot-mobile.png" />
