@@ -1,0 +1,119 @@
+// Variables
+
+// RWD width
+
+$pc-media: 960px;
+$pad-media: 768px;
+$phone-media: 480px;
+
+// Color system
+
+$white: #fff;
+$blue: #3651fe;
+$blue-light: #536aff;
+$orange: #e65c5c;
+$black: #000;
+$gray: #dddee8;
+
+$primary: $blue;
+$secondary: $blue-light;
+$danger: $orange;
+
+// Body
+
+$body-bg: #ebedf5;
+$body-color: #707070;
+
+// Components
+
+$border-width: 1px;
+
+$border-radius: 0.3rem;
+$border-radius-lg: 0.4rem;
+$border-radius-sm: 0.2rem;
+
+$box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+$transition-base: all 0.3s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+
+$font-size-base: 1rem;
+$font-size-xl: $font-size-base * 1.5;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-sm: $font-size-base * 0.875;
+$small-font-size: 80%;
+$title-font-size: $font-size-base * 2;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+// Buttons
+
+$btn-border-width: 0;
+$btn-outline-border-width: 1px;
+$btn-font-weight: $font-weight-normal;
+$btn-primary-color: $primary;
+$btn-hover-color: $secondary;
+$btn-disabled-color: $gray;
+
+$btn-lg-border-radius: $border-radius-lg;
+$btn-lg-font-size: $font-size-lg;
+$btn-lg-padding: 15px 50px;
+
+$btn-sm-border-radius: $border-radius;
+$btn-sm-font-size: $font-size-sm;
+$btn-sm-padding: 10px 40px;
+
+$btn-xs-border-radius: $border-radius;
+$btn-xs-font-size: $font-size-sm;
+$btn-xs-padding: 5px 20px;
+
+$btn-box-shadow: $box-shadow;
+
+// Input
+
+$input-color: $body-color;
+$input-font-size: $font-size-base;
+
+$input-bg: $white;
+$input-border-radius: $border-radius-lg;
+$input-padding: 10px 20px;
+
+$input-box-shadow: $box-shadow;
+$input-focus-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+$input-danger-box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.16);
+
+// List Group
+
+$list-group-box-shadow: $box-shadow;
+$list-group-border-width: 1px;
+$list-group-border-color: #b9b9b9;
+$list-group-border-color-hover: rgba(221, 222, 232, 0.3);
+$list-group-border-radius: $border-radius;
+
+$list-group-bg-color: $white;
+$list-group-color: $body-color;
+
+$list-group-font-size: $font-size-xl;
+$list-group-font-weight: $font-weight-medium;
+
+$list-group-item-height: 80px;
+$list-group-item-padding: 30px 20px;
+
+// Form
+
+$form-label-font-size: $font-size-xl;
+$form-label-font-weight: $font-weight-medium;
+$form-row-margin-top: 20px;
+
+// Radio Button
+
+$radio-button-size: 1.4em;
+$radio-button-border: 1px solid #BFBFBF;
+$radio-button-bg-color: $white;
+$radio-button-font-size: $font-size-xl;
+$radio-button-font-weight: $font-weight-medium;

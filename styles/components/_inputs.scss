@@ -1,0 +1,15 @@
+input[type='text'] {
+  outline: 0;
+  border: 0;
+  background-color: $input-bg;
+  box-shadow: $input-box-shadow;
+  padding: $input-padding;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  color: $input-color;
+  transition: $transition-base;
+
+  &:focus {
+    box-shadow: $input-focus-box-shadow;
+  }
+}

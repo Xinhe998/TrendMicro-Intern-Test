@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- <link rel="stylesheet" type="text/css" href="dist/style.css" /> -->
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="container">
+        <div class="add-record-block">
+          <div class="block__title">Create New Record</div>
+          <form name="add-record-form">
+            <div class="form__row">
+              <label class="form__label form__label--required" for="name">
+                Name:
+              </label>
+              <input
+                type="text"
+                class="form__input"
+                name="name"
+              />
+              <span class="form__input__warning">
+                Error message here.
+              </span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="name">Location:</label>
+              <div class="form__radio-wrapper">
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="radio1"
+                    name="location"
+                    value="Taipei"
+                    checked
+                  />
+                  <label for="radio1" class="radio__label">Taipei</label>
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="radio2"
+                    name="location"
+                    value="Hsinchu"
+                  />
+                  <label for="radio2" class="radio__label">Hsinchu</label>
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="radio3"
+                    name="location"
+                    value="Nanjing"
+                  />
+                  <label for="radio3" class="radio__label">Nanjing</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row">
+              <button class="btn btn--primary btn--lg">Create</button>
+            </div>
+          </form>
+        </div>
+        <div class="record-list-block">
+          <div class="block__title">Saved Records</div>
+          <ul class="list-group">
+            <li class="list-group__item">
+              #13, Tom, Taipei
+              <button
+                class="btn btn--primary--outline btn--xs list-group__item__action"
+              >
+                Delete
+              </button>
+            </li>
+            <li class="list-group__item">
+              #13, Tom, Taipei
+              <button
+                class="btn btn--primary--outline btn--xs list-group__item__action"
+              >
+                Delete
+              </button>
+            </li>
+            <li class="list-group__item">
+              #13, Tom, Taipei
+              <button
+                class="btn btn--primary--outline btn--xs list-group__item__action"
+              >
+                Delete
+              </button>
+            </li>
+            <li class="list-group__item">
+              #13, Tom, Taipei
+              <button
+                class="btn btn--primary--outline btn--xs list-group__item__action"
+              >
+                Delete
+              </button>
+            </li>
+            <li class="list-group__item">
+              #13, Tom, Taipei
+              <button
+                class="btn btn--primary--outline btn--xs list-group__item__action"
+              >
+                Delete
+              </button>
+            </li>
+          </ul>
+          <div class="record-list__page-control">
+            <span>1 - 5</span>
+            <span>/</span>
+            <span class="record-list__item-total">13</span>
+            <button class="btn btn--disabled btn--sm">< Prev</button>
+            <button class="btn btn--primary btn--sm">Next ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="dist/bundle.js"></script> -->
+  </body>
+</html>

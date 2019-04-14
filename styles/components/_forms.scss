@@ -1,0 +1,68 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+
+  .form__label {
+    display: inline-block;
+    text-align: left;
+    font-weight: $form-label-font-weight;
+    font-size: $form-label-font-size;
+    flex-basis: 90px;
+
+    &.form__label--required {
+      &::after {
+        content: '*';
+        color: $danger;
+        margin-left: 0.1em;
+        vertical-align: text-top;
+      }
+    }
+  }
+
+  .form__input {
+    flex-basis: calc(100% - 90px);
+
+    @media screen and (max-width: $pad-media) {
+      flex-basis: 100%;
+      margin-top: 1em;
+    }
+
+    &.form__input--danger {
+      box-shadow: $input-danger-box-shadow;
+    }
+  }
+
+  .form__input__warning {
+    color: $danger;
+    margin-top: 1em;
+    margin-left: 100px;
+    display: none;
+
+    &.form__input__warning--error {
+      display: block;
+    }
+
+    @media screen and (max-width: $pad-media) {
+      margin-left: 0;
+    }
+  }
+
+  .form__radio-wrapper {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $pad-media) {
+      margin-top: 1em;
+    }
+  }
+}
+
+.form__row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  margin-top: $form-row-margin-top;
+}
