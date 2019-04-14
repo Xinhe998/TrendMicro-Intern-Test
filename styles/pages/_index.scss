@@ -39,7 +39,6 @@
 .record-list-block {
   flex: 1;
   padding: 20px;
-  transition: $transition-base;
   align-self: self-start;
 
   @media screen and (max-width: $pad-media) {
