@@ -4,12 +4,13 @@
   padding-left: 0;
   margin-bottom: 0;
   box-shadow: $list-group-box-shadow;
+  transition: $transition-base;
 
   &:empty {
     width: 100%;
     height: 400px;
     background-color: $white;
-    
+
     &::after {
       content: 'No Records.';
       width: 100%;
